@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: spring-boot-backend
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://localhost:5432/portfolio
+      - key: SPRING_DATASOURCE_USERNAME
+        value: vishnu
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: vishnu@2002
