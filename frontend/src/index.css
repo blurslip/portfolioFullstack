@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@plugin "tailwind-scrollbar-hide";
+
+@theme {
+  --color-bgprimary: var(--bgprimary);
+  --color-textprimary: var(--textprimary);
+  --color-textpurple: #b292ff;
+  --color-navblock: #211f23;
+  --color-textsecondary: var(--textsecondary);
+  --color-texttertiary: #b2b2b2;
+
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+  --animate-fade-in-delay-5: fade-in 0.7s ease-out 1s forwards;
+}
+
+@layer base {
+  :root {
+    --bgprimary: #f0f0f0;
+    --textprimary: black;
+    --textsecondary: black;
+    --texttertiay: black;
+  }
+  .dark {
+    --bgprimary: #0c0c0d;
+    --bgsecondary: #131313;
+    --bgtertiary: #272727;
+    /* --whiteshade1: #111111; */
+    /* --whiteshade2: #c8c8c8; */
+    /* --whiteshade3: #6f6f6f; */
+    --textprimary: white;
+    --textsecondary: white;
+    --texttertiary: #b2b2b2;
+  }
+}
+@utility container {
+  margin-inline: auto;
+  /* padding-inline: 2rem; */
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+@layer utilities {
+  .shape {
+    @apply bg-[#5FB9B0] lg:w-80 lg:h-80 rounded-full w-50 h-50;
+  }
+  .portfolio-img {
+    @apply bg-[url('./assets/portfolioimage.png')] bg-cover bg-center;
+  }
+  .cv-btn {
+    @apply w-[184px] h-[46px] bg-white rounded-3xl text-black px-7.5 py-2.5 text-base;
+    @apply hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.7)];
+  }
+  .x-btn {
+    @apply w-[184px] h-[46px] bg-navblock rounded-3xl text-textpurple px-7.5 py-2.5 text-base;
+    @apply hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.7)];
+  }
+  .skill-box {
+    @apply sm:w-[380px] sm:h-[250px] w-[220px] h-[200px] rounded-[70px];
+  }
+  .xp-box {
+    @apply w-[300px] h-[200px]  rounded-4xl;
+  }
+  .tech-box {
+    @apply border border-textprimary/30 max-w-[320px] min-w-[320px] h-fit rounded-2xl text-left p-10 list-none;
+  }
+  .tech-icon {
+    @apply w-8 h-8 inline bg-navblock p-2 rounded-full mr-3;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--bgprimary);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+
+.custom-bullet {
+  background: var(--textprimary) !important;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  opacity: 1;
+  transition: all 0.3s ease;
+  margin: 0px 3px !important;
+}
+.custom-bullet-active {
+  background: var(--textprimary) !important;
+  width: 24px !important;
+  height: 6px !important;
+  border-radius: 9999px !important;
+}
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 40px;
+}
+@media (width >= 64rem) {
+  .swiper-pagination {
+    margin-left: -400px;
+  }
+}

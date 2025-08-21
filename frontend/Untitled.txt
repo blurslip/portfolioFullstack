@@ -1,0 +1,4 @@
+$env:DATASOURCE_URL="jdbc:postgresql://localhost:5432/portfolio"
+$env:DATASOURCE_USER="postgres"
+$env:DATASOURCE_PASSWORD="vishnu123"
+$env:FRONTEND_URL="http://localhost:5173"
