@@ -1,15 +1,19 @@
-# Use official lightweight OpenJDK image
-FROM openjdk:17-jdk-slim
-
-# Set working directory inside container
+# Stage 1: Build with Maven
+FROM maven:3.9.4-eclipse-temurin-17 AS build
 WORKDIR /app
 
-# Copy the built jar file from Maven build
-COPY target/*.jar app.jar
+# Copy pom.xml and src folder
+COPY pom.xml .
+COPY src ./src
 
-# Expose Spring Boot default port
+# Build Spring Boot jar
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run the jar
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+
+# Copy the jar from build stage
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-
-# Run the Spring Boot app
 ENTRYPOINT ["java", "-jar", "app.jar"]
-
