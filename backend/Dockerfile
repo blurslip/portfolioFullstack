@@ -3,8 +3,8 @@ FROM maven:3.9.4-eclipse-temurin-17 AS build
 WORKDIR /app
 
 # Copy pom.xml and src folder
-COPY pom.xml .
-COPY src ./src
+COPY backend/pom.xml .
+COPY backend/src ./src
 
 # Build Spring Boot jar
 RUN mvn clean package -DskipTests
