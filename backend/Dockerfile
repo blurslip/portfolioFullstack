@@ -1,14 +1,12 @@
-#
 # Build stage
-#
 FROM maven:3.8.3-openjdk-17 AS build
+WORKDIR /app
 COPY . .
-RUN mvn clean install
-#
-# Package stage
-#
+RUN mvn clean package -DskipTests
+
+# Run stage
 FROM eclipse-temurin:17-jdk
-COPY --from-build /target/project-0.0.1-SNAPSHOT.jar demo.jar
-# ENV PORT=8080 I
+WORKDIR /app
+COPY --from=build /app/target/project-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","demo.jar"]
+ENTRYPOINT ["java", "-jar", "demo.jar"]
