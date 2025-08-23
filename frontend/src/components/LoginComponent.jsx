@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-
+const BASE_URL = import.meta.env.VITE_API_URL;
 function LoginComponent() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ function LoginComponent() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://localhost:8080/login", {
+      const response = await fetch(`${BASE_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -21,7 +21,9 @@ function LoginComponent() {
         credentials: "include",
       });
       if (response.ok) {  
-        window.location.href = "/admin";
+        window.location.href = "http://localhost:5173/admin";
+        toast.success("WeLcome Vishnu Narayan");
+        console.log("you in")
       } else if (response.status === 401) {
         toast.error("Invalid Credentials");
       } else {

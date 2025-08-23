@@ -6,7 +6,7 @@ function TechSection({ scale, showHeading = true }) {
     document.documentElement.classList.add("dark");
     async function fetchLang() {
       try {
-        const response = await fetch(`${BASE_URL}/languages`);
+        const response = await fetch(`${BASE_URL}/api/languages`);
         const data = await response.json();
         setSkills(data);
       } catch (error) {

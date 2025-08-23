@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import AddSkill from "./AddSkill";
 import { toast } from "react-toastify";
-
+const BASE_URL = import.meta.env.VITE_API_URL;
 function Admin() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:8080/admin", {
+        const res = await fetch(`${BASE_URL}/admin`, {
           credentials: "include",
           headers: {
             "Cache-Control": "no-cache",
@@ -34,7 +34,7 @@ function Admin() {
 
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:8080/admin/logout", {
+      await fetch(`${BASE_URL}/admin/logout`, {
         method: "POST",
         credentials: "include",
       });

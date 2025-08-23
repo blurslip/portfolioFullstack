@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-
+const BASE_URL = import.meta.env.VITE_API_URL;
 function EducationCard({ showDeleteBtn = true }) {
   const [educations, setEducations] = useState([]);
   //*************Fetching Education*************
   useEffect(() => {
     async function getAllEducation() {
       try {
-        const responose = await fetch("http://localhost:8080/api/educations");
+        const responose = await fetch(`${BASE_URL}/api/educations`);
         if (!responose.ok) {
           throw new Error("Something went wrong");
         }
@@ -25,7 +25,7 @@ function EducationCard({ showDeleteBtn = true }) {
     async function deleteRequest() {
       try {
         const responose = await fetch(
-          `http://localhost:8080/api/educations/deleteById/${id}`,
+          `${BASE_URL}/api/educations/deleteById/${id}`,
           {
             method: "DELETE",
           }

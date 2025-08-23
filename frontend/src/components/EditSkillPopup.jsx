@@ -1,7 +1,3 @@
-import { useState } from "react";
-import SkillSection from "./SkillSection";
-import { Power } from "lucide-react";
-
 function EditSkillPopup({ isOpen, onClose, children }) {
   if (!isOpen) return null;
   return (

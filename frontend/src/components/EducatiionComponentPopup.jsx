@@ -3,23 +3,24 @@ import { toast } from "react-toastify";
 import dateFormatter from "../CustomFunc/MonYearFormatter.js";
 import capitalizeWords from "../CustomFunc/LetterCapilizer.js";
 import EducationCard from "./EducationCard.jsx";
-const educations = [
-  {
-    name: "Wise Up",
-    description: "Certificate in advanced English",
-    date: "Jan 2020 - Dec 2021",
-  },
-  {
-    name: "Wise Up",
-    description: "Certificate in advanced English",
-    date: "Jan 2020 - Dec 2021",
-  },
-  {
-    name: "Wise Up",
-    description: "Certificate in advanced English",
-    date: "Jan 2020 - Dec 2021",
-  },
-];
+const BASE_URL = import.meta.env.VITE_API_URL;
+// const educations = [
+//   {
+//     name: "Wise Up",
+//     description: "Certificate in advanced English",
+//     date: "Jan 2020 - Dec 2021",
+//   },
+//   {
+//     name: "Wise Up",
+//     description: "Certificate in advanced English",
+//     date: "Jan 2020 - Dec 2021",
+//   },
+//   {
+//     name: "Wise Up",
+//     description: "Certificate in advanced English",
+//     date: "Jan 2020 - Dec 2021",
+//   },
+// ];
 function EducationComponentPopup() {
   const [showPopup, setShowPopup] = useState(false);
   const [formattedFromDate, setFormattedFromDate] = useState("");
@@ -56,7 +57,7 @@ function EducationComponentPopup() {
         fromDate: formattedFromDate,
         toDate: formattedToDate,
       };
-      const response = await fetch("http://localhost:8080/api/educations", {
+      const response = await fetch(`${BASE_URL}/api/educations`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

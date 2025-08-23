@@ -29,7 +29,7 @@ function SkillSection({ scale }) {
   useEffect(() => {
     const loadSkills = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/skills`);
+        const response = await fetch(`${BASE_URL}/api/skills`);
         if (!response.ok) {
           throw new Error("Failed to fetch Skills");
         }
