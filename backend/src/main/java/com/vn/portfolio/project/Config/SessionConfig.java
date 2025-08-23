@@ -13,7 +13,7 @@ public class SessionConfig {
     public CookieSerializer cookieSerializer() {
         DefaultCookieSerializer serializer = new DefaultCookieSerializer();
         serializer.setSameSite("None");
-        serializer.setUseSecureCookie(false);
+        serializer.setUseSecureCookie(true);
         return serializer;
     }
 }
