@@ -15,7 +15,7 @@ public class SessionConfig {
         serializer.setSameSite("None");
         serializer.setUseSecureCookie(true);
         serializer.setCookiePath("/");
-        serializer.setDomainName("https://portfoliofullstack-ug2e.onrender.com");
+        serializer.setDomainName("portfoliofullstack-ug2e.onrender.com");
         return serializer;
     }
 }
