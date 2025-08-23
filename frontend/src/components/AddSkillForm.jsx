@@ -21,7 +21,7 @@ function AddSkillForm({ onLogout }) {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${BASE_URL}/skills`, {
+      const response = await fetch(`${BASE_URL}/api/skills`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function AddSkillForm({ onLogout }) {
   async function deleteSkill() {
     try {
       const response = await fetch(
-        `${BASE_URL}/skills/${deleteSkillName}`,
+        `${BASE_URL}/api/skills/${deleteSkillName}`,
         {
           method: "DELETE",
         }
@@ -71,7 +71,7 @@ function AddSkillForm({ onLogout }) {
   // DELETE ALL LOGIC
   async function deleteAll() {
     try {
-      const response = await fetch(`${BASE_URL}/skills/all`, {
+      const response = await fetch(`${BASE_URL}/api/skills/all`, {
         method: "DELETE",
       });
       if (!response.ok) throw new Error("Failed to delete all skill");

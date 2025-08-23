@@ -20,11 +20,11 @@ function EditTechPopup({ isOpen, onClose }) {
   async function handleClearAll() {
     try {
       // Delete all categories
-      const resCat = await fetch(`${BASE_URL}/categories/all`, {
+      const resCat = await fetch(`${BASE_URL}/api/categories/all`, {
         method: "DELETE",
       });
       // Delete all skills
-      const resSkill = await fetch(`${BASE_URL}/languages/all`, {
+      const resSkill = await fetch(`${BASE_URL}/api/languages/all`, {
         method: "DELETE",
       });
       if (!resCat.ok && !resSkill.ok)
@@ -40,7 +40,7 @@ function EditTechPopup({ isOpen, onClose }) {
 
   async function addCategory() {
     try {
-      const response = await fetch(`${BASE_URL}/categories`, {
+      const response = await fetch(`${BASE_URL}/api/categories`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ function EditTechPopup({ isOpen, onClose }) {
 
   async function addSkill() {
     try {
-      const response = await fetch(`${BASE_URL}/languages`, {
+      const response = await fetch(`${BASE_URL}/api/languages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,7 @@ function EditTechPopup({ isOpen, onClose }) {
   async function handleDeleteCategory() {
     try {
       const response = await fetch(
-        `${BASE_URL}/categories/${deleteCategory}`,
+        `${BASE_URL}/api/categories/${deleteCategory}`,
         {
           method: "DELETE",
         }
@@ -105,7 +105,7 @@ function EditTechPopup({ isOpen, onClose }) {
   async function handleDeleteSkill() {
     try {
       const response = await fetch(
-        `${BASE_URL}/languages/${deleteSkill}`,
+        `${BASE_URL}/api/languages/${deleteSkill}`,
         {
           method: "DELETE",
         }
