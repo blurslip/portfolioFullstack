@@ -21,9 +21,9 @@ function LoginComponent() {
         credentials: "include",
       });
       if (response.ok) {  
-        window.location.href = "https://portfolio-fullstack-tau.vercel.app/admin";
+        // window.location.href = "https://portfolio-fullstack-tau.vercel.app/admin";
         toast.success("WeLcome Vishnu Narayan");
-        console.log("you in")
+        console.log("you in",response)
       } else if (response.status === 401) {
         toast.error("Invalid Credentials");
       } else {
