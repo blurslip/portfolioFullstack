@@ -78,7 +78,7 @@ public class SecurityConfig {
                                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized")
                 ))
                 .formLogin(form -> form
-                        .loginProcessingUrl("/login")   // backend login URL
+                        .loginProcessingUrl("/login")
                         .permitAll())
                 .logout(logout -> logout
                         .logoutUrl("/admin/logout")
