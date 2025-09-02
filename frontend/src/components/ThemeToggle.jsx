@@ -5,12 +5,10 @@ function ThemeToggle() {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
-    console.log(storedTheme);
     if (storedTheme === "dark" || storedTheme === null) {
       document.documentElement.classList.add("dark");
       setIsDarkMode(true);
-    }
-    else {
+    } else {
       document.documentElement.classList.remove("dark");
       setIsDarkMode(false);
     }
@@ -20,12 +18,10 @@ function ThemeToggle() {
     if (isDarkMode) {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      console.log("Light mode");
       setIsDarkMode(false);
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      console.log("Dark mode");
       setIsDarkMode(true);
     }
   }
@@ -33,7 +29,7 @@ function ThemeToggle() {
   return (
     <>
       <button
-        className="absolute top-13 right-10 cursor-pointer hidden md:block"
+        className="absolute top-12 right-10 cursor-pointer hidden md:block"
         onClick={toggleTheme}
       >
         {isDarkMode ? (

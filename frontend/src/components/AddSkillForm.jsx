@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SkillSection from "./SkillSection";
-import { Power } from "lucide-react";
+import { LogOut } from "lucide-react";
 import EditSkillPopup from "./EditSkillPopup";
 import { toast } from "react-toastify";
 const BASE_URL = import.meta.env.VITE_API_URL;
@@ -70,6 +70,8 @@ function AddSkillForm({ onLogout }) {
 
   // DELETE ALL LOGIC
   async function deleteAll() {
+    const confirmed = window.confirm("Are you sure you want to delete all skills? This action cannot be undone.");
+    if (!confirmed) return;
     try {
       const response = await fetch(`${BASE_URL}/api/skills/all`, {
         method: "DELETE",
@@ -83,14 +85,17 @@ function AddSkillForm({ onLogout }) {
   }
   return (
     <>
-      <div className="flex dark:bg-bgprimary items-center justify-center mt-6 mb-6 px-4">
-        <button
-          onClick={onLogout}
-          className="absolute top-10 right-10 p-2 rounded-full bg-red-500 text-white hover:bg-red-600 dark:hover:bg-red-700 focus:outline-none cursor-pointer"
-          title="Logout"
-        >
-          {<Power />}
-        </button>
+      <div className="dark:bg-bgprimary items-center mt-6 mb-6 px-4">
+          <div className="flex flex-col items-center">
+            <button
+              onClick={onLogout}
+              className="mb-6 flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-tr from-red-500 to-pink-500 text-white font-semibold shadow-lg ring-2 ring-red-300 hover:scale-105 hover:ring-4 hover:from-red-600 hover:to-pink-600 transition-all duration-200 focus:outline-none cursor-pointer"
+              title="Logout"
+            >
+              <LogOut size={20} />
+              Logout
+            </button>
+          </div>
         <div className="w-full flex flex-col items-center justify-center border border-navblock rounded-2xl">
           <h2 className="text-white font-bold text-2xl sm:text-3xl md:text-4xl mt-6 sm:mt-10 text-center">
             Control what you see here

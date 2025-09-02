@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound.jsx";
 import Admin from "./pages/Admin.jsx";
 import LoginComponent from "./components/LoginComponent.jsx";
 import Education from "./pages/Education.jsx";
+import Project from "./pages/Projects.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<LoginComponent />} />
           <Route path="/education" element={<Education/>} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/projects" element={<Project />} />
         </Routes>
       </BrowserRouter>
     </>

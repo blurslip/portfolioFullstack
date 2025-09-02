@@ -6,6 +6,7 @@ import "swiper/css/mousewheel";
 import { Mousewheel, Pagination } from "swiper/modules";
 const BASE_URL = import.meta.env.VITE_API_URL;
 import { useEffect, useState } from "react";
+import { BeatLoader } from "react-spinners";
 function SkillSection({ scale }) {
   // *************SAMPLE DATA*************
 
@@ -23,6 +24,7 @@ function SkillSection({ scale }) {
   const colors = ["#C3C99E", "#c8c8c8c8", "#5FB9B0", "#C2C2C2"];
 
   const [skills, setSkills] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // *************FETCHING SKILLS*************
 
@@ -37,6 +39,8 @@ function SkillSection({ scale }) {
         setSkills(data);
       } catch (error) {
         console.error("Error fetching  skills: ", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -54,49 +58,53 @@ function SkillSection({ scale }) {
           <div className="xp-box max-w-[300px] min-w-[280px] drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">
             <div className="lg:text-left text-center text-base text-textprimary/50">
               <p>
-                4 years of <br />
+                1 years of <br />
                 <span className="text-7xl text-textprimary font-bold">XP</span>
-                <br /> with the most popular ecosystem frontend
+                <br /> with the most popular ecosystem
               </p>
             </div>
           </div>
           {/* *************SKILL BOXES************* */}
-          <div className="max-w-full w-full p-5">
-            <Swiper
-              modules={[Pagination, Mousewheel]}
-              loop={true}
-              pagination={{
-                clickable: true,
-                bulletClass: "swiper-pagination-bullet custom-bullet",
-                bulletActiveClass:
-                  "swiper-pagination-bullet-active custom-bullet-active",
-              }}
-              mousewheel={{ enabled: true }}
-              breakpoints={{
-                320: { slidesPerView: 2, spaceBetween: 200 }, // Mobile
-                640: { slidesPerView: 2, spaceBetween: 80 }, // Small tablets
-                1024: { slidesPerView: 2.5, spaceBetween: 80 }, // Laptops
-                1280: { slidesPerView: 3.5, spaceBetween: 80 }, // Large screens
-              }}
-            >
-              {skills.map((skill, index) => (
-                <SwiperSlide key={index}>
-                  <div
-                    className={`skill-box flex items-start justify-center pl-5 flex-col`}
-                    style={{
-                      backgroundColor: `${colors[index % colors.length]}`,
-                    }}
-                  >
-                    <img
-                      src={skill.iconUrl}
-                      alt={`${skill.name} logo `}
-                      className="h-8 w-8"
-                    />
-                    <div>{skill.name}</div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+          <div className="max-w-full w-full h-fit p-5">
+            {isLoading ? (
+              <BeatLoader color="white"/>
+            ) : (
+              <Swiper
+                modules={[Pagination, Mousewheel]}
+                loop={true}
+                pagination={{
+                  clickable: true,
+                  bulletClass: "swiper-pagination-bullet custom-bullet",
+                  bulletActiveClass:
+                    "swiper-pagination-bullet-active custom-bullet-active",
+                }}
+                mousewheel={{ enabled: true }}
+                breakpoints={{
+                  320: { slidesPerView: 2, spaceBetween: 200 }, // Mobile
+                  640: { slidesPerView: 2, spaceBetween: 80 }, // Small tablets
+                  1024: { slidesPerView: 2.5, spaceBetween: 80 }, // Laptops
+                  1280: { slidesPerView: 3.5, spaceBetween: 80 }, // Large screens
+                }}
+              >
+                {skills.map((skill, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      className={`skill-box flex items-start justify-center pl-5 flex-col`}
+                      style={{
+                        backgroundColor: `${colors[index % colors.length]}`,
+                      }}
+                    >
+                      <img
+                        src={skill.iconUrl}
+                        alt={`${skill.name} logo `}
+                        className="h-8 w-8"
+                      />
+                      <div>{skill.name}</div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ import SkillTitles from "../components/SkillTitles";
 function Home() {
   return (
     <>
-      <div className="relative">
+      <div className="relatie">
         {/**************THEME TOGGLE**************/}
 
         <ThemeToggle />

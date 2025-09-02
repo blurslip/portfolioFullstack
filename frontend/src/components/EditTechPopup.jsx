@@ -18,6 +18,8 @@ function EditTechPopup({ isOpen, onClose }) {
   }
   // Clear all data logic
   async function handleClearAll() {
+    const confirmed = window.confirm("Are you sure you want to clear all categories and skills? This action cannot be undone.");
+    if (!confirmed) return;
     try {
       // Delete all categories
       const resCat = await fetch(`${BASE_URL}/api/categories/all`, {

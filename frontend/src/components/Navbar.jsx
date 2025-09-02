@@ -1,9 +1,10 @@
 import { Github, Instagram, Linkedin, Mail } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Education", href: "/education" },
-  { name: "Skills", href: "/#skills" },
+  { name: "Projects", href: "/projects" },
 ];
 
 const navIcons = [
@@ -21,15 +22,29 @@ function Navbar() {
     <nav className="container flex items-center text-base text-textpurple bg-navblock sm:max-w-[450px] h-[70px] max-w-[300px] rounded-full m-auto mt-8 overflow-x-auto sm:overflow-hidden scrollbar-hide">
       <div className="flex justify-evenly items-center w-full gap-5 mx-10">
         {/* Nav Links */}
-        <ul className="flex justify-between space-x-8">
+
+        <div className="flex justify-between space-x-8">
+          {navItems.map((item, index) => (
+            <NavLink
+              key={index}
+              to={item.href}
+              className={({ isActive }) =>
+                isActive ? "text-textpurple" : "text-white"
+              }
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </div>
+        {/* <ul className="flex justify-between space-x-8">
           {navItems.map((item, index) => (
             <li key={index}>
-              <a href={item.href} className="hover:text-white">
+              <a href={item.href} className="text-white hover:text-white">
                 {item.name}
               </a>
             </li>
           ))}
-        </ul>
+        </ul> */}
 
         {/* Icons */}
         <ul className="flex space-x-3 [&_svg]:w-4.5 sm:[&_svg]:w-5">

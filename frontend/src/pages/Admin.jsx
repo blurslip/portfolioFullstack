@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import AddSkill from "./AddSkill";
 import { toast } from "react-toastify";
+import { BeatLoader } from "react-spinners";
 const BASE_URL = import.meta.env.VITE_API_URL;
 function Admin() {
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,12 +23,13 @@ function Admin() {
         if (!res.ok) {
           throw new Error(`Http error!!! status: ${res.status}`);
         }
-
       } catch (err) {
         console.error("Failed to fetch admin Data: ", err);
+      } finally {
+        setIsLoading  (false);
       }
     };
-    
+
     fetchData();
   }, []);
 
@@ -47,7 +50,13 @@ function Admin() {
   return (
     <>
       <div>
-        <AddSkill onLogout={handleLogout} />
+        {isLoading ? (
+          <div className="flex items-center justify-center h-screen bg-[#0c0c0d]">
+            <BeatLoader color="white" size={15} />
+          </div>
+        ) : (
+          <AddSkill onLogout={handleLogout} />
+        )}
       </div>
     </>
   );

@@ -9,6 +9,7 @@
   --color-navblock: #211f23;
   --color-textsecondary: var(--textsecondary);
   --color-texttertiary: #b2b2b2;
+  --color-bgcard: var(--bgcard);
 
   --animate-fade-in: fade-in 0.7s ease-out forwards;
   --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
@@ -24,6 +25,7 @@
     --textprimary: black;
     --textsecondary: black;
     --texttertiay: black;
+    --bgcard: white;
   }
   .dark {
     --bgprimary: #0c0c0d;
@@ -32,6 +34,8 @@
     /* --whiteshade1: #111111; */
     /* --whiteshade2: #c8c8c8; */
     /* --whiteshade3: #6f6f6f; */
+    --bgcard: #211f23;
+
     --textprimary: white;
     --textsecondary: white;
     --texttertiary: #b2b2b2;
@@ -51,10 +55,10 @@
     max-width: 1024px;
   }
   @media (width >= 1280px) {
-    max-width: 1280px;
+    max-width: 1100px;
   }
   @media (width >= 1400px) {
-    max-width: 1400px;
+    max-width: 1500px;
   }
 }
 @layer utilities {
@@ -73,13 +77,13 @@
     @apply hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.7)];
   }
   .skill-box {
-    @apply sm:w-[380px] sm:h-[250px] w-[220px] h-[200px] rounded-[70px];
+    @apply sm:w-[300px] sm:h-[250px] w-[220px] h-[200px] rounded-[70px];
   }
   .xp-box {
     @apply w-[300px] h-[200px]  rounded-4xl;
   }
-  .tech-box {
-    @apply border border-textprimary/30 max-w-[320px] min-w-[320px] h-fit rounded-2xl text-left p-10 list-none;
+  .tech-box {   
+    @apply border border-textprimary/30 max-w-[320px] lg:min-w-[450px] min-w-[350px] h-fit rounded-2xl text-left p-5 list-none;
   }
   .tech-icon {
     @apply w-8 h-8 inline bg-navblock p-2 rounded-full mr-3;
@@ -133,4 +137,7 @@
   .swiper-pagination {
     margin-left: -400px;
   }
+}
+.clip-blob {
+  clip-path: polygon(60% 0%, 100% 38%, 79% 100%, 23% 100%, 0% 38%);
 }

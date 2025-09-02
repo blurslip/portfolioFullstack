@@ -31,7 +31,7 @@ function Footer() {
       </footer>
       <div className="container mt-5 mb-10">
         <p className="container text-textprimary text-center text-[13px]">
-          vigads © 2025
+          © 2025 Vishnu Narayan 
         </p>
       </div>
     </>
