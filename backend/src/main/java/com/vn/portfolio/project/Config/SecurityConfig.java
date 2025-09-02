@@ -39,10 +39,7 @@ public class SecurityConfig {
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(
                         (request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized")
                 ))
-                .formLogin(form -> form
-                        .loginProcessingUrl("/login")
-                        .permitAll()
-                )
+                .formLogin(form -> form.disable())
                 .logout(logout -> logout
                         .logoutUrl("/admin/logout")
                         .invalidateHttpSession(true)
@@ -70,6 +67,7 @@ public class SecurityConfig {
                 .build();
         return new InMemoryUserDetailsManager(admin);
     }
+
     @PostConstruct
     public void logAdmin() {
         log.info("Admin username injected: {}", adminUsername);
