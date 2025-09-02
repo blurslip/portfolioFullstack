@@ -13,7 +13,7 @@ const navIcons = [
     icon: <Linkedin />,
     href: "https://www.linkedin.com/in/vishnu-narayan-386464219/",
   },
-  { icon: <Mail />, href: "mailto:vishnunarayan453@gmail.com" },
+  { icon: <Mail />, href: "https://mail.google.com/mail/?view=cm&to=vishnunarayan453@gmail.com" },
   { icon: <Instagram />, href: "https://www.instagram.com/narayanium/" },
 ];
 
@@ -36,15 +36,7 @@ function Navbar() {
             </NavLink>
           ))}
         </div>
-        {/* <ul className="flex justify-between space-x-8">
-          {navItems.map((item, index) => (
-            <li key={index}>
-              <a href={item.href} className="text-white hover:text-white">
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul> */}
+
 
         {/* Icons */}
         <ul className="flex space-x-3 [&_svg]:w-4.5 sm:[&_svg]:w-5">

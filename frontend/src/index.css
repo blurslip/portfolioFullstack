@@ -83,7 +83,7 @@
     @apply w-[300px] h-[200px]  rounded-4xl;
   }
   .tech-box {   
-    @apply border border-textprimary/30 max-w-[320px] lg:min-w-[450px] min-w-[350px] h-fit rounded-2xl text-left p-5 list-none;
+    @apply border border-textprimary/30 max-w-[320px] lg:min-w-[500px] min-w-[350px] h-fit rounded-2xl text-left p-5 list-none;
   }
   .tech-icon {
     @apply w-8 h-8 inline bg-navblock p-2 rounded-full mr-3;
@@ -137,7 +137,4 @@
   .swiper-pagination {
     margin-left: -400px;
   }
-}
-.clip-blob {
-  clip-path: polygon(60% 0%, 100% 38%, 79% 100%, 23% 100%, 0% 38%);
 }
