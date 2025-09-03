@@ -1,7 +1,6 @@
 package com.vn.portfolio.project.Controller;
 
 import com.vn.portfolio.project.Service.CVFileService;
-import jakarta.annotation.Resource;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
