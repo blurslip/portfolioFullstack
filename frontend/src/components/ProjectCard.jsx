@@ -153,7 +153,7 @@ export function ProjectCard({ editMode }) {
   }
 
   return (
-    <section className="py-24 px-4 relative">
+    <section className="py-24 px-4 relative mt-30">
       <div className="container mx-auto max-w-5xl text-textprimary">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">

@@ -5,23 +5,7 @@ const BASE_URL = import.meta.env.VITE_API_URL;
 function EducationCard({ showDeleteBtn = true }) {
   const [educations, setEducations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // SAMPLE DATA
-//   const educations = [
-//     {
-//         "id": 15,
-//         "education": "Swami Vivekananda High School, Pandanad",
-//         "description": "Higher Secondary",
-//         "fromDate": "Jun-2018",
-//         "toDate": "Apr-2020"
-//     },
-//     {
-//         "id": 16,
-//         "education": "College Of Applied Science, Perissery",
-//         "description": "Bachelor Of Computer Science",
-//         "fromDate": "Aug-2022",
-//         "toDate": "Aug-2025"
-//     }
-// ];
+
   //*************Fetching Education*************
   useEffect(() => {
     async function getAllEducation() {
@@ -63,7 +47,7 @@ function EducationCard({ showDeleteBtn = true }) {
   }
   return (
     <>
-      <div className="container mt-30 mb-10 min-h-[50vh]">
+      <div className="container mt-60 mb-10 min-h-[50vh]">
         {isLoading ? (
           <div className="min-h-screen">
             <BeatLoader color="white" />

@@ -58,7 +58,7 @@ function SkillSection({ scale }) {
           <div className="xp-box max-w-[300px] min-w-[280px] drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">
             <div className="lg:text-left text-center text-base text-textprimary/50">
               <p>
-                1 years of <br />
+                1 year of <br />
                 <span className="text-7xl text-textprimary font-bold">XP</span>
                 <br /> with the most popular ecosystem
               </p>

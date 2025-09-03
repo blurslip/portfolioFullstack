@@ -42,10 +42,7 @@ function UploadCV() {
     } finally {
       setIsLoading(false);
     }
-    // Simulate upload
-    // setTimeout(() => {
-    //   setUploadStatus("CV uploaded successfully!");
-    // }, 1000);
+
   };
 
   return (

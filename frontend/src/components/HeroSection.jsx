@@ -32,7 +32,7 @@ function HeroSection() {
   };
   return (
     <>
-      <section id="hero" className="text-textprimary container">
+      <section id="hero" className="text-textprimary container mt-30">
         {/* CONTENT SECTION */}
 
         <div className="flex flex-col-reverse xl:flex-row xl:text-left items-center justify-between max-w-full pt-[120px] px-5 sm:px-0 gap-10">
@@ -55,7 +55,7 @@ function HeroSection() {
                 with a keen interest in creating applications that are both
                 functional and user-friendly. My journey so far has been about
                 learning, experimenting, and growing as a developer, and this
-                portfolio is a space where I share some of that wor
+                portfolio is a space where I share some of that work
               </p>
             </div>
 
